@@ -1,12 +1,12 @@
-# Docker compose for apache and tomcat
+# Docker Compose for apache and tomcat
 
 ## Description
 
-This project covers setting up apache httpd for the frontend and apache tomcat for the backend.
+This project covers setting up apache httpd for the frontend and apache tomcat for the backend with sample WAR application using Docker Compose.
 
 ## Instruction
 
-Run ```docker-compose up –d``` to get accessible application via http://localhost/sample/
+Run `docker-compose up –d` to get example application via http://localhost/sample/
 
 ## License
 

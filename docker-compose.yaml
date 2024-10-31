@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  backend:
+    build:
+      dockerfile: backend.Dockerfile
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/sample"]
+      start_period: 5s
+
+  frontend:
+    build:
+      dockerfile: frontend.Dockerfile
+    volumes:
+      - ./conf/httpd.conf:/usr/local/apache2/conf/httpd.conf:ro
+      - ./conf/vhosts:/usr/local/apache2/conf/vhosts:ro
+    depends_on:
+      backend:
+        condition: service_healthy
+    ports:
+      - 80:80
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/sample"]
+      start_period: 5s
